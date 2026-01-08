@@ -1,14 +1,14 @@
 # Rock_Paper_Scissors_Game
 AI Game Referee (Google ADK–based)
 
-Overview
+**Overview**
 
 This project implements a minimal AI Game Referee chatbot for Rock–Paper–Scissors–Plus.
 The bot enforces rules, tracks game state across turns, and provides clear round-by-round feedback in a CLI-based conversational loop.
 
 The solution is intentionally minimal and focuses on correct state modeling, tool usage, and agent design, in line with the assignment requirements.
 
-State Model
+**State Model**
 
 The game state is stored in a structured Python dataclass, ensuring that state does not live only in the prompt and persists across turns.
 
@@ -21,7 +21,7 @@ class GameState:
     bot_bomb_used: bool
     game_over: bool
 
-Why this design
+**Why this design**
 
 Explicit and readable
 
@@ -31,8 +31,8 @@ Clearly separates game data from agent logic
 
 Fully deterministic and testable
 
-Agent & Tool Design (Google ADK)
-Agent
+**Agent & Tool Design (Google ADK)
+Agent**
 
 The GameRefereeAgent acts as the orchestration layer, following Google ADK principles:
 
@@ -48,7 +48,7 @@ Managing game flow and termination
 
 The agent itself does not contain game rules; it delegates logic to tools.
 
-Tools (Explicit, Required)
+**Tools (Explicit, Required)**
 
 The following tools are defined and used for validation and state mutation:
 
@@ -82,7 +82,7 @@ State mutation is explicit and auditable
 
 Matches Google ADK’s tool-based agent paradigm
 
-Tradeoffs Made
+**Tradeoffs Made**
 1. No live Gemini API dependency
 
 While Google ADK is used conceptually (agent + tools + structured state), the final implementation avoids a hard runtime dependency on Gemini model availability.
@@ -153,7 +153,7 @@ python game.py
 
 No setup, no API keys, no external services required.
 
-Summary
+**Summary**
 
 This project prioritizes:
 
